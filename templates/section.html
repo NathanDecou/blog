@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+{%- include "partials/statements.html" -%}
+{%- if section.extra.toc and not section.extra.toc_sidebar -%}
+{%- include "partials/toc.html" -%}
+{%- endif -%}
+{{ section.content | safe }}
+{% if section.subsections %}
+<h2>Sous-sections dans cette section</h2>
+
+<ul>
+{% for post in section.subsections %}
+{% set section = get_section(path=post) %}
+  <li><a href="{{ section.permalink }}">{{ section.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if section.pages %}
+<h2>Articles dans cette section</h2>
+<ul>
+{% for post in section.pages %}
+  <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}
