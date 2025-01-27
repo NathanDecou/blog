@@ -34,7 +34,7 @@ En cherchant 'synoptic code' (le nom du challenge), on trouve qu'il s'agit d'un 
 
 J'ai décidé d'utiliser l'outil [perplexity](https://www.perplexity.ai) et de voir si l'agent était capable de traduire le message. Le message a pu être traduit par l'IA sans soucis. Attention toute fois, on peut voir dans les sources utilisées par perplexity qu'un writeup sur ce challenge est utilisée. Même si les autres sources pourraient probablement suffir à l'outil pour la traduction, il est évident que celle est la plus utile mais constitue presque de la triche.
 
-{{ image(url="perplexity.png", no_hover=true) }}
+{{ image(url="perplexity.jpg", no_hover=true) }}
 
 ## Solution
 

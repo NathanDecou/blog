@@ -24,7 +24,7 @@ En allant sur le site [Geomastr](https://geomastr.com), on peut défiler toutes 
 
 On voit que les plaques référencées par le site semblent bien correspondre à ce qu'on voit sur l'image originale.
 
-{{ image(url="plaque_geomastr.png", no_hover=true) }}
+{{ image(url="plaque_geomastr.jpg", no_hover=true) }}
 
 On part alors du principe qu'il s'agit bien de la Colombie et de Bogota. Ce n'est pas une certitude (surtout pour Bogota), mais c'est notre seul idée pour le moment.
 
@@ -37,13 +37,13 @@ Au fond de l'image sur la gauche, on aperçoit des devantures de vitrines. On vo
 
 En essayant des recherches avec des lettre qui pourraient correspondre je finis par essayer `MOVET` et tombe sur cette image.
 
-{{ image(url="movet.png", no_hover=true) }}
+{{ image(url="movet.jpg", no_hover=true) }}
 
 Ça semble correspondre à ce qu'on voit sur l'image originale (avec le chien rose). Ce batiment est donc un cabinet vétérinaire 'MOVET'.
 
 En allant sur le site de ces cabinets : [https://www.movet.co](https://www.movet.co), on voit dans le pied de page la liste des cliniques.
 
-{{ image(url="clinicas.png", no_hover=true) }}
+{{ image(url="clinicas.jpg", no_hover=true) }}
 
 Toutes ces cliniques sont à Bogota !
 

@@ -78,17 +78,17 @@ Sur la doc de daloradius, on trouve que le couple `login:password` par defaut es
 
 En testant sur les deux URLs precedemment trouvée, ce couple fonctionne pour `/operators/login.php`
 
-{{ image(url="dashboard_daloradius.png", no_hover=true) }}
+{{ image(url="dashboard_daloradius.jpg", no_hover=true) }}
 
 ## Accès au serveur
 
 Via le dashboard il est possible de lister les utilisateurs. Ceci nous donne aussi le hash de leur mot de passe.
 
-{{ image(url="list_users.png", no_hover=true) }}
+{{ image(url="list_users.jpg", no_hover=true) }}
 
 On peut alors essayer de trouver le mot de passe en clair de l'utilisateur. Via [crackstation](https://crackstation.net/) par exemple.
 
-{{ image(url="hash_crack.png", no_hover=true) }}
+{{ image(url="hash_crack.jpg", no_hover=true) }}
 
 Le mot de passe de l'utilisateur `svcMosh` est `underwaterfriends`.
 
@@ -96,7 +96,7 @@ Les machines Hackthebox utilisent souvent le même procédé : un mot de passe t
 
 En testant de se connecter en SSH en tant que `svcMosh` sur la machine avec le mot de passe `underwaterfriends`, on n'echappe pas à la règle et la connnexion fonctionne. On récupère donc le flag `user`.
 
-{{ image(url="logged.png", no_hover=true) }}
+{{ image(url="logged.jpg", no_hover=true) }}
 
 ## Flag root
 ### Listing sudo
@@ -121,6 +121,6 @@ En regardant la documentation on voit que `mosh-server` permet de lancer un serv
 Une fois ce serveur lancer, il nous suffit de faire `MOSH_KEY='<KEY>' mosh-client <IP> <PORT>` pour se connecter au serveur et etre root ! Les valeurs de `<PORT>` et de `<KEY>` sont données par le retour de la commande `sudo mosh-server`.
 
 
-{{ image(url="root_logged.png", no_hover=true) }}
+{{ image(url="root_logged.jpg", no_hover=true) }}
 
 And voila, nous sommes `root` sur cette machine.

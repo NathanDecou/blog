@@ -20,7 +20,7 @@ Dans le fond de l'image, on aperçoit ce qui semble être un lac.
 
 En se rendant dans la vallée Zillertal sur Google Earth, le relief et le lac semblent correspondre. Mais pour l'instant rien de certain.
 
-{{ image(url="gearth1.png", no_hover=true) }}
+{{ image(url="gearth1.jpg", no_hover=true) }}
 
 ## Recherche précise de la montagne
 
@@ -30,7 +30,7 @@ Un élément décisif de la recherche est le cette espèce ce lac que l'on aper�
 
 En cherchant sur Google Earth, on trouve un lac qui pourrait correspondre.
 
-{{ image(url="gearth2.png", no_hover=true) }}
+{{ image(url="gearth2.jpg", no_hover=true) }}
 
 Et en cherchant le bon angle, on confirme qu'il s'agit du bon endroit. En haut, la vue depuis Google Earth, en bas la photo originale.
 

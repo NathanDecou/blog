@@ -12,7 +12,7 @@ Trouver le code ICAO de l'aéroport ou a été prise la photo suivante.
 
 Les coordonnées GPS se trouvent dans les metadatas de l'image. On peut les trouver avec l'outil `exiftool` ou bien en ligne via [onlineexifviewer](https://onlineexifviewer.com/) par exemple.
 
-{{ image(url="exif.png", no_hover=true) }}
+{{ image(url="exif.jpg", no_hover=true) }}
 
 ## Solution
 

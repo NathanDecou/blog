@@ -9,6 +9,6 @@ En fin d'année 2024, [Bellingcat](https://bellingcat.com/) ont mis en ligne un 
 
 Le site ressemble à ça :
 
-{{ image(url="challenges_homepage.png", alt="Page d'accueil du site", no_hover=true) }}
+{{ image(url="challenges_homepage.jpg", alt="Page d'accueil du site", no_hover=true) }}
 
 Il y a en tout 4 sections, chacune contenant 5 exercices.

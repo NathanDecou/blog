@@ -30,7 +30,7 @@ Il ya deux ports ouverts, le 80 avec un serveur web et le 22 en écoute pour une
 
 En accedant à `<IP>:80` on est redirigé vers `http://linkvortex.htb`. Un blog est hebergé sur cette URL. En explorant rapidement on ne voit rien qui semble interessant.
 
-{{ image(url="homepage.png", no_hover=true) }}
+{{ image(url="homepage.jpg", no_hover=true) }}
 
 ### robots.txt
 
@@ -47,7 +47,7 @@ Disallow: /r/
 
 On y voit des URLs qui peuvent s'averer interessantes. Notamment l'URL `/ghost`, qui renvoie vers la page de login pour administrer le CMS ([ghost](https://ghost.org))
 
-{{ image(url="login_page.png", no_hover=true) }}
+{{ image(url="login_page.jpg", no_hover=true) }}
 
 ## Retour à de l'énumération
 
@@ -86,11 +86,11 @@ On voit qu'on a une réponse pour `dev.linkvortex.htb`.
 
 Cette page ne semble rien donner. Juste une image nous disant que le site arrive bientôt.
 
-{{ image(url="dev_linkvortex.png", no_hover=true) }}
+{{ image(url="dev_linkvortex.jpg", no_hover=true) }}
 
 On lance dans le doute une recherche de repertoire avec `dirsearch`. On trouve alors un dossier `.git` accessible.
 
-{{ image(url="found_git.png", no_hover=true) }}
+{{ image(url="found_git.jpg", no_hover=true) }}
 
 ### Exploration du depot git
 
@@ -140,7 +140,7 @@ index 2735588..e654b0e 100644
 
 Si on essaie d'utiliser ce mot de passe en combinaison avec le mail `admin@linkvortex.htb`, on arrive à se connecter à l'interface.
 
-{{ image(url="admin_page.png", no_hover=true) }}
+{{ image(url="admin_page.jpg", no_hover=true) }}
 
 ## Accès au serveur
 
@@ -183,11 +183,11 @@ On peut y voir un couple username/password (`bob@linkvortex.htb`/`fibber-talente
 
 En essayant ce couple en SSH, on accède à la machine.
 
-{{ image(url="logged_user.png", no_hover=true) }}
+{{ image(url="logged_user.jpg", no_hover=true) }}
 
 ## Recuperation du flag root
 
-En lançant `sudo -l`, on voit que l'utilisateur `bob` peut lancer en sudo la commande `/usr/bin/bash /opt/ghost/clean_symlink.sh *.png`
+En lançant `sudo -l`, on voit que l'utilisateur `bob` peut lancer en sudo la commande `/usr/bin/bash /opt/ghost/clean_symlink.sh *.jpg`
 
 Voici le contenu du script.
 
@@ -202,8 +202,8 @@ fi
 
 LINK=$1
 
-if ! [[ "$LINK" =~ \.png$ ]]; then
-  /usr/bin/echo "! First argument must be a png file !"
+if ! [[ "$LINK" =~ \.jpg$ ]]; then
+  /usr/bin/echo "! First argument must be a jpg file !"
   exit 2
 fi
 
@@ -224,7 +224,7 @@ if /usr/bin/sudo /usr/bin/test -L $LINK;then
 fi
 ```
 
-Ce script sert à deplacer des fichiers `png` qui sont en fait des liens symboliques vers un dossier de quarantaine. Voici les 2 caractéristiques importantes du script :
+Ce script sert à deplacer des fichiers `jpg` qui sont en fait des liens symboliques vers un dossier de quarantaine. Voici les 2 caractéristiques importantes du script :
 
 + Une variable d'environnement permet ou non de lire le contenu du fichier pointé.
 + Si le fichier pointé contient 'root' ou 'etc', le lien sera supprimé et aucune lecture du fichier ne sera possible
@@ -233,6 +233,6 @@ Notre but est de lire le fichier `/root/root.txt` (fichier contenant le flag sur
 
 Pour cela, il suffit de faire deux liens. Le premier qui pointera vers `/root/root.txt`, le second vers le premier. Et on utilisera le premier avec le script.
 
-{{ image(url="proc_root.png", no_hover=true) }}
+{{ image(url="proc_root.jpg", no_hover=true) }}
 
 Nous avons donc réussi à lire le fichier `/root/root.txt`.

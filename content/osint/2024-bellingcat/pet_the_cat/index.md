@@ -30,13 +30,13 @@ En cherchant 'Kotor walk' sur YouTube on trouve par exemple cette vidéo
 
 A exactement 5mn29 on y voit ce plan
 
-{{ image(url="kotor_screen.png", no_hover=true)}}
+{{ image(url="kotor_screen.jpg", no_hover=true)}}
 
 On peut y reconnaitre le batiment en fond de la photo originale à gauche, et l'architecture de la barrière en pierre à droite.
 
 Voici une comparaison des deux photographies.
 
-{{ image(url="comparaison.png", no_hover=true) }}
+{{ image(url="comparaison.jpg", no_hover=true) }}
 
 ## Solution
 La photo a été prise à Kotor.

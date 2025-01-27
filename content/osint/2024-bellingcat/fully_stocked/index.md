@@ -17,7 +17,7 @@ Heuresement, Google Image n'est pas le seul outil permettant de faire de la rech
 
 Pour cette deuxième tentative, j'utilise [Yandex](https://yandex.com/).
 
-{{ image(url="yandex.png", no_hover=true) }}
+{{ image(url="yandex.jpg", no_hover=true) }}
 
 On peut voir que l'outil donne un texte 'about the image' en russe.
 

